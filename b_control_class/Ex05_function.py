@@ -8,22 +8,44 @@
         수행할 문장들
 """
 
+# (0) 인자도 리턴값도 없는 함수
+def func():
+    print('inside func')
+    return 'ok'
+func()
+result = func() #None
+print(result)
 
 
 
 
+# (1) 리턴값이 여러개 있는 함수
+def func(arg):
+    return arg+5, arg-5, arg*5
+result = func(10)
+print(result)
+
+a, b, c = func(10)
+print(a, b, c)
 
 
 
+# (2) 위치 인자 (positional argument)
+def func(greeting,name):
+    print(greeting,'!!!!',name, '님')
 
+func('하이','박길동')
+func('홍길동','안녕')
 
+# (3) 키워드 인자 (keyword argument)
+func(name= '홍길동',greeting='안녕')
 
+# (4) 인자의 기본값
+def func(greeting,name="홍길동"):
+    print(greeting, '!!!!',name , '님')
 
-
-
-
-
-
+func('하이','박길동')
+func('안녕')
 
 
 '''
@@ -39,6 +61,31 @@ print(func(4, 5, 6, 7))
 print(func(4, 5, 6, 7, 8, 9))       # args에 7,8,9가 튜플로 들어간다
 '''
 
+def func(a,b,c=0,*args):
+    sum = a+b+c
+    for i in args:
+        sum+=i
+    return sum
+
+print(func(4, 5))
+print(func(4, 5, 6))
+print(func(4, 5, 6, 7))
+print(func(4, 5, 6, 7, 8, 9))
 
 
+# ------------------------------------
+# (6) 키워드 인자 모으기
+def func(a,b,c=100,*args,**kwargs):
+    sum = a+b+c
+    for i in args:
+        sum+=i
+
+    for k in kwargs:
+        sum += kwargs[k]
+    return sum
+print(func(10,20))
+print(func(1,2,3))
+print(func(1,2,3,4,5,6))
+print(func(1,2,kor=10,eng=20))
+print(func(1,2,3,4,java = 5,math=6,kor=7))
 

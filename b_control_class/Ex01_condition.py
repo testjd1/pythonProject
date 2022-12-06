@@ -14,6 +14,7 @@
         elif 조건식B :
             문장들
         else :
+            pass
             문장들
 
         ` 조건식이나 else 뒤에는 콜론(:) 표시
@@ -24,20 +25,49 @@
 
 # 거짓(False)의 값
 i = 0;
-i2=0.0
-i3=""
-i4=str()
-i5=list()
-i6=tuple()
-i7=set()
-i8=dict()
-i9={}
-i10=None
+i2 = 0.0
+i3 = ""
+i4 = str()
+i5 = list()
+i6 = tuple()
+i7 = set()
+i8 = dict()
+i9 = {}
+i10 = None
 
+a = -1
+if a:
+    print('True')
+else:
+    print('False')
+# a가 0이 아니므로 True
 
+a = -1
+b = 10
 
+if a and b:
+    print('True2')  # 나옴
+if a or b:
+    print('True3')  # 나옴
 
+a = -1
+b = 0
 
+if a and b:
+    print('True2-2')  # 안나옴
+if a or b:
+    print('True3-2')  # 나옴
 
+print(a and b)  # False -> 0
+print(a or b)  # True  -> -1
 
+a = 20
+b = 0
+if a:
+    c = 2
+elif b:
+    c = 4
+else:
+    c = 6
 
+print(c)  # c = 2 출력, 지역변수 개념x ..?

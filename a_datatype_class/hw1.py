@@ -1,3 +1,6 @@
+import math
+import numpy
+
 '''
 1. 사용자로부터 5개의숫자를읽어서리스트에저장하고숫자들의평균을계산하여출력한다.
 또숫자중에서평균을출력하여보자.
@@ -16,7 +19,7 @@ for i in range(5):
     sum += k
 print('평균 = {}'.format(sum/5))
 '''
-import math
+
 
 '''
 2. 2. 사용자에게서받은문자들을 역순으로 출력한다. 
@@ -99,5 +102,26 @@ for i in m:
 
 print(sum)
 '''
+#1
+sum = 0
+for i in range(5):
+    sum += eval(input('정수를입력하세요: '))
+print("평균= {0}".format(sum/5))
+
+#2
+print(input("문자들을 입력하시오: ")[::-1])
+
+#3
+import numpy
+list = [int(x) for x in input('정수리스트입력: ').split()]
+print('평균= {0}\n표준편차 {1}'.format(numpy.mean(list), numpy.std(list)))
+
+#4
+string = input('문자열을입력하시오: ')
+p = {'':1, 'a':2, 'b':2, 'c':2,'d':3,'e':3,'f':3,'g':4,'h':4,'i':4,
+'j':5,'k':5,'l':5,'m':6,'n':6,'o':6,'p':7,'q':7,'r':7,'s':7,'t':8,'u':8,
+'v':8,'w':9,'x':9,'y':9,'z':9}
+for char in string:
+    print(p.get(char.lower()), end='')
 
 
