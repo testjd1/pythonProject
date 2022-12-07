@@ -23,5 +23,9 @@ def get_weather():
     return choice(today)
 
 def get_date():
-    today = ['월','화','수','목','금','토','일ㄴ']
+    today = ['월','화','수','목','금','토','일']
     return choice(today)
+
+if __name__ == '__main__':
+    print(get_weather())
+    print(get_date())

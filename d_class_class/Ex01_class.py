@@ -5,9 +5,35 @@
      ` self : 객체 자신을 가리킨다.
 """
 
+'''
+자바인 경우
+class Sample {
+    String data = "Hello";
+    String name ;
+    Sample(String name){
+        this.name = name;
+    }
+}
+Sample s = new Sample("홍길동");
+'''
 
+class Sample:
+    data = 'Hello'
+    def __init__(self,name, age):
+        self.name = name
+        self.age = age
+        print('__init__함수 호출')
+        return
 
+    def __del__(self):
+        print(('__del__ 호출'))
 
+s = Sample('홍길동',55)
+print(s.data)
+print(s.name)
+print(s.age)
+del s
+print('-'*20)
 
 
 
@@ -26,13 +52,34 @@
     클래스   함수 :  'cls'인 클래스를 인자로 받고 모든 인스턴스가 공유하는 클래스 변수와 같은 데이터를 생성, 변경 또는 참조
      
     - 클래스 함수는 클래스명 접근
+ [자바인 경우]
+ class Sample {
+    int a;
+    static in b;
+}
+Sample s1 = new Sample();
+Sample s2 = new Sample();
+Sample s3 = new Sample();
  
 """
+class Book:
+    cnt = 0
+    def __init__(self,title):
+        self.title = title
+        self.cnt += 1
 
+    def output(self):
+        pass
+    @classmethod
+    def output2(cls):
+        cls.cnt+=1
 
-
-
-
+b1 = Book('행보ㅓㄱ이란')
+b2 = Book('먹고살자')
+Book.output2()
+Book.output2()
+b1.output2()
+print(Book.cnt)
 
 
 '''
@@ -43,3 +90,24 @@
 '''
 
 
+class Animal:
+    def move(self):
+        print('동물은 움직인다')
+
+class Human(Animal):
+    def move(self):
+        print('인간은 두 발로 걷는다')
+class Wolf(Animal):
+    def move(self):
+        print('늑대는 네발로 걷는다')
+class Werewolf(Wolf,Human):
+    def move(self):
+        print('늑대인간은 두 발로 달린다')
+
+print('-'*20)
+ww  = Werewolf()
+ww.move()
+h = Human()
+h.move()
+w = Wolf()
+w.move()
