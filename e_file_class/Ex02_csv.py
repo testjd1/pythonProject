@@ -21,4 +21,3 @@ with open('./data/imsi.csv','rt',encoding='utf-8-sig') as f:
     result= [ row for row in cin if row ]   # row값이 없으면 false 취급되어서 패스
 
 print(result)
-'''
